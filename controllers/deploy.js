@@ -10,7 +10,7 @@ var _ = require('lodash');
 var config = require('../config/app');
 
 var getHook = function(req, res) {
-  var file = path.join(process.cwd(), 'sample', 'github-multiplecommit.json');
+  var file = path.join(config.appDir, 'sample', 'github-multiplecommit.json');
   fs.readFile(file, 'utf8', function (err, data) {
     if (err) {
       console.log(err);
@@ -68,7 +68,7 @@ var pullLatest = function(hookBody, configData, branch, callback) {
     function(data, cb){
       // Only for simaya
       if (name === 'Simaya') {
-        var command = path.join(process.cwd(), 'bin', 'update.sh');
+        var command = path.join(config.appDir, 'bin', 'update.sh');
         console.log('['+ name + '] : ' + command);
         var child2 = exec(command, function(err, stdout, stderr) {
           if (err) {

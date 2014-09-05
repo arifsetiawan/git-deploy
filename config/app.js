@@ -1,7 +1,7 @@
 
 var localRepo = {
   'dummy' : {
-    path : 'C:/Users/ArifSetiawan/Repository/Simaya/dummyd',
+    path : process.env.PORT ? 'C:/Users/ArifSetiawan/Repository/Simaya/dummyd' : '/home/simaya/apps/dummy',
     branch : ['master', 'test']
   }
 }
@@ -26,5 +26,6 @@ var result = function(status, message, data) {
 module.exports = {
   port : process.env.PORT ? process.env.PORT : 3001,
   result : result,
-  repo : process.env.PORT ? deployRepo : localRepo
+  repo : process.env.PORT ? deployRepo : localRepo,
+  appDir : process.env.PORT ? process.cwd() : '/home/simaya/apps/deploy'
 }
