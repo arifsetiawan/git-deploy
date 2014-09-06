@@ -68,7 +68,7 @@ var pullLatest = function(hookBody, configData, branch, callback) {
     function(data, cb){
       // Only for simaya
       if (name === 'Simaya') {
-        var command = path.join(config.appDir, 'bin', 'update.sh');
+        var command = path.join(config.appDir, '..', 'simaya', 'start-linux.sh');
         console.log('['+ name + '] : ' + command);
         var child2 = exec(command, function(err, stdout, stderr) {
           if (err) {

@@ -27,5 +27,9 @@ module.exports = {
   port : process.env.PORT ? process.env.PORT : 3001,
   result : result,
   repo : process.env.PORT ? deployRepo : localRepo,
-  appDir : process.env.PORT ? '/home/simaya/apps/deploy' : process.cwd()
+  appDir : process.env.PORT ? '/home/simaya/apps/deploy' : process.cwd(),
+  auth : {
+    username : process.env.PORT ? process.ENV.DEPLOY_USERNAME : 'user',
+    username : process.env.PORT ? process.ENV.DEPLOY_PASSWORD : 'password',
+  }
 }
